@@ -1,13 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
 $font : 'Open Sans', sans-serif;
+$top-header-color:#000;
+$white:#fff;
+$default: #5c5c5c;
+
+*, ::after, ::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
 
 body{
     font-family: $font;
-    font-size: 12px;
-    color: #5c5c5c;
+    font-size: 0.75rem;
+    color: $default;
     text-transform: uppercase;
+    line-height: 1.65;
 }
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+button{
+    padding: 0;
+    background: 0 0;
+    border: none;
+    border-radius: 0;
+}
+
+img{
+    max-width: 100%;
+}
+
 .icon{
     display: inline-block;
     height: 1em;
@@ -28,5 +56,80 @@ body{
     .icon-cart{
         width: 17px;
         height: 20px;
+    }
+
+    .icon-close{
+        width: 15px;
+        height: 15px;
+        stroke-width: 1.25px;
+    }
+}
+
+.top-header{
+    background-color: $top-header-color;
+    color: $white;
+    text-align: center;
+    font-size: .625rem;
+    letter-spacing: .5px;
+
+    &-row{
+        padding: 12px 15px;
+    }
+}
+
+.mobile-sidebar-menu{
+    background: rgba(54,54,54 ,.5);
+}
+
+.sidebar-menu-wrap{
+    background: $white;
+    width: calc(100vw - 65px);
+
+    header{
+        padding: 17px 18px 17px 24px;
+    }
+
+    .menu-container{
+        padding-left: 18px;
+        padding-right: 24px;
+    }
+
+    .menu-item{
+        border-bottom: 1px solid #e7e7e7;
+        overflow: hidden;
+
+        a{
+            padding: 20px 0;
+            display: block;
+            position: relative;
+        }
+    }
+}
+
+.header-wrap-row{
+    padding: 15px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .header-icon{
+        line-height: 1;
+        -webkit-transition: color .2s ease-in-out;
+        transition: color .2s ease-in-out;
+        position: relative;
+    }
+
+    .logo-wrap{
+        
+        a{
+            font-size: 1.875rem;
+            font-weight: 700;
+            text-decoration: none;
+            line-height: 1;
+        }
+    }
+
+    a{
+        color: $top-header-color;
     }
 }
