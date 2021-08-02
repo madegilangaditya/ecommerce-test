@@ -36,6 +36,12 @@ img{
     max-width: 100%;
 }
 
+.heading{
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    color: $default;
+}
+
 .icon{
     display: inline-block;
     height: 1em;
@@ -45,6 +51,40 @@ img{
     stroke-width: 1px;
     background: 0 0;
     pointer-events: none;
+}
+
+.plus-icon{
+    position: absolute;
+    right: 0;
+    top: calc(50% - (11px / 2));
+    width: 11px;
+    height: 11px;
+
+    &:before,
+    &:after{
+        position: absolute;
+        content: '';
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%,-50%) rotate(-90deg);
+        transform: translate(-50%,-50%) rotate(-90deg);
+        background-color: currentColor;
+        -webkit-transition: opacity .4s ease-in-out,-webkit-transform .4s ease-in-out;
+        transition: opacity .4s ease-in-out,-webkit-transform .4s ease-in-out;
+        transition: transform .4s ease-in-out,opacity .4s ease-in-out;
+        transition: transform .4s ease-in-out,opacity .4s ease-in-out,-webkit-transform .4s ease-in-out;
+    }
+
+    &:before{
+        width: 11px;
+        height: 1px;
+        opacity: 1;
+    }
+
+    &::after{
+        width: 1px;
+        height: 11px;
+    }
 }
 
 .header-icon{
@@ -98,10 +138,22 @@ img{
         border-bottom: 1px solid #e7e7e7;
         overflow: hidden;
 
-        a{
+        &-btn{
             padding: 20px 0;
             display: block;
             position: relative;
+            width: 100%;
+            text-align: left;
+            font-size: 0.8125rem;
+        }
+        .submenu-wrap{
+
+            .menu-item{
+                margin-left: 16px;
+                border: none;
+                padding: 13px 0;
+                color: rgba($default, .5);
+            }
         }
     }
 }

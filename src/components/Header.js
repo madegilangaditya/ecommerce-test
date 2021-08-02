@@ -22,7 +22,13 @@ const Header = () => {
                         <div className="menu-container">
                             <nav className="primary-menu">
                                 <div className="menu-item">
-                                    <a href="/terbaru"> Terbaru</a>
+                                    <a href="/terbaru" className="menu-item-btn heading">Terbaru</a>
+                                </div>
+                                <div className="menu-item">
+                                    <button className="menu-item-btn heading" aria-expanded="false">Atasan <span className="plus-icon"></span></button>
+                                    <div className="submenu-wrap">
+                                        <div className="menu-item heading"><a href="/collections">Lihat Semua</a></div>
+                                    </div>
                                 </div>
                             </nav>
                         </div>
