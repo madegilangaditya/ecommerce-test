@@ -1,6 +1,13 @@
 import React from 'react'
+import { useState } from 'react'
 
 const Header = () => {
+    const [openMenu, setOpenMenu] = useState(false)
+
+    const menuClicked = ()=>{
+        setOpenMenu(!openMenu)
+    }
+
     return (
         <header className="App-header">
             <section className="top-header">
@@ -9,6 +16,7 @@ const Header = () => {
                 </div>
             </section>
 
+            {/* Sidebar Menu */}
             <section id="sidebar-menu" className="mobile-sidebar-menu">
                 <div className="sidebar-menu-wrap">
                     <header>
@@ -89,7 +97,7 @@ const Header = () => {
             <section className="header-wrap">
                 <div className="header-wrap-row">
                     <div className="nav-wrap">
-                        <button className="header-icon menu-icon" aria-expanded="false" aria-label="Open navigation" data-action="open-drawer">
+                        <button onClick={menuClicked} className="header-icon menu-icon" aria-expanded={openMenu} aria-label="Open navigation" data-action="open-drawer">
                             <svg className="icon icon-nav" role="presentation" viewBox="0 0 20 14">
                                 <path d="M0 14v-1h20v1H0zm0-7.5h20v1H0v-1zM0 0h20v1H0V0z" fill="currentColor"></path>
                             </svg>
