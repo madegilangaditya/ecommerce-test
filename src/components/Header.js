@@ -2,10 +2,37 @@ import React from 'react'
 import { useState } from 'react'
 
 const Header = () => {
-    const [openMenu, setOpenMenu] = useState(false)
+    const [openMenu, setOpenMenu] = useState(true)
+    // const [childOpenMenu, setChildOpenMenu] = useState(false)
 
     const menuClicked = ()=>{
         setOpenMenu(!openMenu)
+    }
+
+    const childMenuClicked = (e)=> {
+        const a_parent =  document.querySelectorAll(".has-child")
+        // Check if has active class or not
+        
+        if(e.target.parentElement.classList.contains('active')){
+            e.target.parentElement.classList.remove("active")
+            // e.target.setAttribute("aria-expanded", "false")
+            console.log(e.target.parentElement)
+        }
+        else{
+            a_parent.forEach((aitem) =>{
+                aitem.classList.remove("active")
+                // aitem.children[0].setAttribute("aria-expanded", "false")
+                
+                if(e.target.parentElement.classList.contains("has-child")){
+                    e.target.parentElement.classList.add("active")
+                    // e.target.setAttribute("aria-expanded", "true")
+                    // e.preventDefault();
+                    console.log("testing")
+                }   
+            })
+            
+        }
+        
     }
 
     return (
@@ -17,20 +44,20 @@ const Header = () => {
             </section>
 
             {/* Sidebar Menu */}
-            <section id="sidebar-menu" className="mobile-sidebar-menu">
+            <section id="sidebar-menu" className="mobile-sidebar-menu" aria-hidden={openMenu}>
                 <div className="sidebar-menu-wrap">
                     <header>
-                        <button className="header-icon">
+                        <button className="header-icon" onClick={menuClicked}>
                             <svg className="Icon icon-close" role="presentation" viewBox="0 0 16 14">
-                                <path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path>
+                                <path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fillRule="evenodd"></path>
                             </svg>
                         </button>
                     </header>
                     <div className="menu-wrap">
                         <div className="menu-container">
-                            <nav className="primary-menu">
+                            <nav className="primary-menu" onClick={childMenuClicked}>
                                 <div className="menu-item"><a href="/terbaru" className="menu-item-btn heading">Terbaru</a></div>
-                                <div className="menu-item">
+                                <div className="menu-item has-child">
                                     <button className="menu-item-btn heading" aria-expanded="false">Atasan <span className="plus-icon"></span></button>
                                     <div className="submenu-wrap">
                                         <div className="menu-item heading"><a href="/collections">Lihat Semua</a></div>
@@ -40,7 +67,7 @@ const Header = () => {
                                         <div className="menu-item heading"><a href="/collections">Jaket</a></div>
                                     </div>
                                 </div>
-                                <div className="menu-item">
+                                <div className="menu-item has-child">
                                     <button className="menu-item-btn heading" aria-expanded="false">Bawahan <span className="plus-icon"></span></button>
                                     <div className="submenu-wrap">
                                         <div className="menu-item heading"><a href="/collections">Lihat Semua</a></div>
@@ -48,7 +75,7 @@ const Header = () => {
                                         <div className="menu-item heading"><a href="/collections">Celana Panjang</a></div>
                                     </div>
                                 </div>
-                                <div className="menu-item">
+                                <div className="menu-item has-child">
                                     <button className="menu-item-btn heading" aria-expanded="false">Aksesoris <span className="plus-icon"></span></button>
                                     <div className="submenu-wrap">
                                         <div className="menu-item heading"><a href="/collections">Lihat Semua</a></div>
@@ -97,7 +124,7 @@ const Header = () => {
             <section className="header-wrap">
                 <div className="header-wrap-row">
                     <div className="nav-wrap">
-                        <button onClick={menuClicked} className="header-icon menu-icon" aria-expanded={openMenu} aria-label="Open navigation" data-action="open-drawer">
+                        <button onClick={menuClicked} className="header-icon menu-icon" aria-label="Open navigation" data-action="open-drawer">
                             <svg className="icon icon-nav" role="presentation" viewBox="0 0 20 14">
                                 <path d="M0 14v-1h20v1H0zm0-7.5h20v1H0v-1zM0 0h20v1H0V0z" fill="currentColor"></path>
                             </svg>
