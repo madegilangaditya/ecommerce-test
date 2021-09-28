@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 const Header = () => {
     const [openMenu, setOpenMenu] = useState(true)
-    // const [childOpenMenu, setChildOpenMenu] = useState(false)
+    const [fixNavbar, setFixNavbar] = useState(false)
 
     const menuClicked = ()=>{
         setOpenMenu(!openMenu)
@@ -29,11 +29,21 @@ const Header = () => {
                     // e.preventDefault();
                     console.log("testing")
                 }   
-            })
-            
-        }
-        
+            })   
+        }    
     }
+
+    const menuFixed = () =>{
+        const scrollY = window.scrollY
+        if(scrollY > 100){
+            setFixNavbar(true)
+        }else{
+            setFixNavbar(false)
+        }
+        console.log("test ", scrollY)
+    }
+
+    window.addEventListener('scroll', menuFixed)
 
     return (
         <header className="App-header">
@@ -121,7 +131,7 @@ const Header = () => {
                 </div>
             </section>
 
-            <section className="header-wrap">
+            <section className={`header-wrap ${fixNavbar ? 'fixed':''}`}>
                 <div className="header-wrap-row">
                     <div className="nav-wrap">
                         <button onClick={menuClicked} className="header-icon menu-icon" aria-label="Open navigation" data-action="open-drawer">

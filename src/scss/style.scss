@@ -279,6 +279,15 @@ img{
 }
 
 // Header Section Styling
+.header-wrap{
+    background-color: $white;
+    &.fixed{
+        position: fixed;
+        width: 100%;
+        top: 0;
+    }
+}
+
 .header-wrap-row{
     padding: 15px 18px;
     display: flex;
