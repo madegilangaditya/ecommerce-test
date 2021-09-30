@@ -156,11 +156,18 @@ const Header = () => {
             </section>
 
             <section className="banner">
-                <div className="banner-img-wrap">
+                {/* <div className="banner-img-wrap">
                     <img src="./img/1_x800.jpeg" alt="banner" />
-                </div>
+                </div> */}
                 <div className="btn-wrap">
                     <a href="/collections" className="btn btn-banner">👉Produk Terbaru👈</a>
+                </div>
+                <div className="scroll-btn">
+                    <a href="#content">
+                        <svg class="Icon Icon--arrow-bottom" role="presentation" viewBox="0 0 21 11">
+                            <polyline fill="none" stroke="currentColor" points="0.5 0.5 10.5 10.5 20.5 0.5" stroke-width="1.25"></polyline>
+                        </svg>
+                    </a>
                 </div>
             </section>
         </header>
