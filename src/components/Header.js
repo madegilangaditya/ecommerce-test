@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import { Link } from "react-router-dom"
 
 const Header = () => {
     const [openMenu, setOpenMenu] = useState(true)
@@ -70,7 +71,7 @@ const Header = () => {
                                 <div className="menu-item has-child">
                                     <button className="menu-item-btn heading" aria-expanded="false">Atasan <span className="plus-icon"></span></button>
                                     <div className="submenu-wrap">
-                                        <div className="menu-item heading"><a href="/collections">Lihat Semua</a></div>
+                                        <div className="menu-item heading"><Link to="/collections">Lihat Semua</Link></div>
                                         <div className="menu-item heading"><a href="/collections">T-Shirt</a></div>
                                         <div className="menu-item heading"><a href="/collections">T-Shirt Graphic</a></div>
                                         <div className="menu-item heading"><a href="/collections">Kemeja</a></div>
