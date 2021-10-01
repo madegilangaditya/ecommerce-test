@@ -5,6 +5,32 @@ $top-header-color:#000;
 $white:#fff;
 $default: #5c5c5c;
 
+// Button animation
+@keyframes buttonFromTopToBottom {
+    0% {
+      -webkit-transform: translateY(0%);
+      transform: translateY(0%); 
+    }
+  
+    25% {
+      opacity: 0;
+      -webkit-transform: translateY(100%);
+      transform: translateY(100%); 
+    }
+  
+    50% {
+      opacity: 0;
+      -webkit-transform: translateY(-100%);
+      transform: translateY(-100%); 
+    }
+  
+    75% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+      transform: translateY(0%); 
+    } 
+}
+
 // General Styling
 *, ::after, ::before{
     margin: 0;
@@ -349,15 +375,20 @@ img{
         box-shadow: 0 2px 10px rgba(54,54,54,0.15);
         vertical-align: middle;
         line-height: 0;
-        
-        a{
-            margin-top: 16px;
-            display: block;
+        transition: opacity .15s ease-in-out,transform .2s ease-in-out,color .2s ease-in-out,-webkit-transform .2s ease-in-out;
+
+        &:hover{
+            transform: scale(1.1);
+
+            svg{
+                animation: buttonFromTopToBottom .5s ease-in-out forwards;
+            }
         }
         
         svg{
             height: 18px;
             width: 18px;
+            margin-top: 16px;
         }
     }
 }
